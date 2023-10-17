@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Fandom</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <a href="/" id="logo">
+            <img src="/img/logo.png" alt="Logo de lampada">
+        </a>
+        {{!-- Trabalhar com if else dps que tiver autenticação. URLS APÓS AUTENTICAÇÃO--}}
+        <ul>
+            {{#if session.userId}}
+            <li><a href="/">Pensamentos gerais</a></li>
+            <li><a href="/op/toughts/dashboard">Dashboard</a></li>
+            <li><a href="/">Arcos</a></li>
+            <li><a href="/logout">Sair</a></li>
+            
+            {{else}}
+                <li><a href="/">Pensamentos Gerais</a></li>
+                <li><a href="/register">Registro</a></li>
+                <li><a href="/login">Login</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+       
+     <div class="container" > 
+            {{!-- Mensagens do sistema --}}
+            {{!-- Se tiver alguma mensagem como chave do obj messages(criado pelo model flash) exiba! --}}
+            {{#if messages.message}}
+            <div class="message">
+                {{messages.message}}
+            </div> 
+            {{/if}}
+
+            {{{ body }}}
+
+</body>
+</html>

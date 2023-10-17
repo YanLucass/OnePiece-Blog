@@ -1,0 +1,30 @@
+
+<div class="dashboard">
+    <div class="title-container">
+        <h2>Dashboard</h2>
+        <a href="/op/toughts/general" class="btn">Criar pensamento geral</a>
+        <a href="/op/toughts/addArch" class="btn">Comentar arcos</a>
+    </div>
+<h3>Pensamentos: </h3>
+
+{{#if toughts}}
+    <ul>
+        {{#each toughts}}
+            <li>
+                <span class="label">
+                  <span class="title">Titulo:{{this.title}}</span>
+                     <p>Conteudo:</p>
+                     <span>{{this.content}}</span>
+                </span>
+            </li>
+            <div class="conteudo">
+                
+            </div>
+           
+        {{/each}}   
+    </ul>
+{{else}}
+    <p>Você ainda não tem pensamentos</p>
+{{/if}}
+
+</div>
