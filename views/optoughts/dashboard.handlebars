@@ -1,49 +1,33 @@
-<h2>1 - Pensamento geral</h2>
-<p>Pense sobre qualquer coisa relacionada a one piece, teorias.</p>
-<br>
-<h2>2 - Comentar arcos</h2>
-<p>Feedbacks apenas para arcos de one piece</p>
 <div class="dashboard">
+    <h2>Pensamento Geral</h2>
+    <p>Pense sobre qualquer coisa relacionada a One Piece, teorias.</p>
+
+    <h2>Comentar Arcos</h2>
+    <p>Feedbacks apenas para arcos de One Piece</p>
+
     <div class="title-container">
         <h2>Dashboard</h2>
-        <a href="/op/toughts/general" class="btn">Criar pensamento geral</a>
-        <a href="/op/toughts/archs" class="btn">Comentar arcos</a>
+        <a href="/op/toughts/general" class="btn">Criar Pensamento Geral</a>
+        <a href="/op/toughts/archs" class="btn">Comentar Arcos</a>
     </div>
-<h3>Seus Pensamentos: </h3>
 
-{{#if toughts}}
-    <ul>
+    <h3>Seus Pensamentos:</h3>
+
+    {{#if toughts}}
+    <ul class="thought-list">
         {{#each toughts}}
-            <li>
-                <span class="label">
-                  <span class="title">Titulo:{{this.title}}</span>
-                     <p>Conteudo:</p>
-                     <span>{{this.content}}</span>
-                </span>
-                <span class="actions">
-                    <a href="/op/toughts/edit" class="btn">Editar</a>
-                </span>
-            </li>
+        <li class="thought-item">
+            <div class="thought-content">
+                <span class="label">Título: {{this.title}}</span>
+                <p class="content">Conteúdo: {{this.content}}</p>
+            </div>
+            <div class="actions">
+                <a href="/op/toughts/edit" class="btn">Editar</a>
+            </div>
+        </li>
         {{/each}}
-
-        {{#each wanoTought}}   
-            <li>
-                <span class="label">
-                  <span class="title">Titulo:{{this.title}}</span>
-                     <p>Conteudo:</p>
-                     <span>{{this.content}}</span>
-                </span>
-                 <span>{{this.arch}}</span>
-                <span class="actions">
-                    <a href="/op/toughts/edit" class="btn">Editar</a>
-                </span>
-            </li>
-        {{/each}}
-
-
     </ul>
-{{else}}
+    {{else}}
     <p>Você ainda não tem pensamentos</p>
-{{/if}}
-
+    {{/if}}
 </div>

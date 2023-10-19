@@ -1,13 +1,49 @@
 import WanoTought from '../models/WanoTought'
 import Tought from '../models/Tought'
 import User from '../models/User';
+import Comment from '../models/Comment'
+import { Op } from 'sequelize';
 
 module.exports = class ToughtController {
 
     static async showHome(req, res){
-        //exibir pensamentos na home
-        const toughtsData = await Tought.findAll({ include: User});
+        let search = '';
+        // Se tiver parametros nas querys params
+        if(req.query.search) {
+            search = req.query.search;
+        }
+
+        // Ordernação
+        let order = 'DESC' // por padrão dos mais recentes pros mais antigos.
+        // mas caso venha
+        if(req.query.order === 'old') {
+            order = 'ASC' // dos mais antigos para mais novos
+        } else {
+            order = 'DESC'
+        }
+
+        const toughtsData = await Tought.findAll({
+            include: [
+                { model: User},
+                { model: Comment},
+            ],
+
+            where: {
+                title: { [Op.like]: `%${search}%`},
+            },
+            order: [['createdAt', order]]
+            
+        });
+        // console.log(toughtsData)
+        const allToughtsQty = await Tought.count();
         const toughts = toughtsData.map(result => result.get({plain: true}));
+        // console.log(toughts);
+        let toughtsQty = toughts.length;
+
+        //handlebars não reconhece 0 como false.
+        if(toughtsQty === 0) {
+            toughtsQty = false;
+        }
         res.render('optoughts/home', { toughts });
     }
 
@@ -80,4 +116,43 @@ module.exports = class ToughtController {
     static showArchs(req, res) {
         res.render('optoughts/archs');
     }
-}
+
+    static async addComment(req, res) {
+
+        const userId = req.session.userId;
+        const user = await User.findOne({where: { id: userId}});
+        
+        console.log(user.name);
+        const content = {
+            content: req.body.content,
+            ToughtId: req.body.toughtId,
+            UserId: req.body.userId,
+            userName: user.name
+        }
+
+        console.log(content);
+        try {
+            
+           
+            if(!userId) {
+                return;
+            }
+            await Comment.create(content);
+            req.flash('message', 'Comentário adiocionado com sucesso');
+            req.session.save(() => {
+                res.redirect('/');
+                return;
+            })
+            
+            
+        } catch(err) {
+            console.log('Ocorreu um erro' + err);
+        }
+    }
+
+
+
+    }
+
+
+

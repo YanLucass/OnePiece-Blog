@@ -1,14 +1,84 @@
-<h1>Pensamentoss!!!</h1>
+<div class="home">
+
+<div class="home-header">
+    {{#if search}}
+    <h1>Você está buscando por: <span>{{search}}</span></h1>
+        {{#if toughtsQty}}
+            <p>Foram encontrados <span>{{toughtsQty}}</span> pensamentos de <span>{{allToughtsQty}}</span></p>
+        {{else}}
+            <p>Nenhum pensamento foi encontrado com esse termo <span>{{search}}</span></p>
+        {{/if}}
+    {{else}}
+    <h1>O que as pessoas pensam sobre <span>One Piece</span></h1>
+    {{/if}}
+
+{{!-- Form para busca --}}
+<form action="/" method="GET">
+    <input type="text" name="search" placeholder="Está buscando por algo?">
+    <input type="submit" value="Buscar" class="btn">
+</form>
+
+{{!-- Ordenação --}}
+<div class="order-container">
+    <span>Ordenar por:</span>
+    {{!-- Mais recente --}}
+    <form action="/" method="GET">
+        {{!-- Podemos buscar eai vai ser ordenado pelo mais recente etc. --}}
+        <input type="hidden" name="search" value="{{this.search}}">
+        <input type="hidden" name="order" value="new">
+        <button type="submit"> <i class="bi bi-arrow-up"></i></button>
+    </form>
+
+    {{!-- Mais antigo --}}
+    <form action="/" method="GET">
+        <input type="hidden" name="search" value="{{this.search}}">
+        <input type="hidden" name="order" value="old">
+        <button type="submit"><i class="bi bi-arrow-down"></i></button>
+    </form>
+    {{!-- Volta par ahome, removendo os parametross da url, desfazendo td --}}
+    <a href="/">Limpar</a>
+
+
+</div>
+</div>
 
 <div class="toughts-container">
     {{#each toughts}}
-    <figure>
-        <blockquote>
-            "Titulo: {{this.title}}"
-            <p>Conteudo: {{this.content}}</p>
-        </blockquote>
-        <span>por : {{this.User.name}}</span>
-     
-    </figure>
+        <figure>
+            <blockquote>    
+                "{{this.title}}"
+                 <p>{{this.content}}</p>
+            </blockquote>
+            <figcaption>
+                por <span>{{this.User.name}}</span>
+            </figcaption>
+                <div class="comentarios">
+                    <h2>Comentários:</h2>
+                    {{#each this.Comments}}
+                        <p>{{this.content}} de <span>{{this.userName}}</span></p>
+                    {{/each}}
+                </div>
+                <button class="add-comment-button">Adicionar um comentário</button>
+                {{!-- Formulário de comentário oculto --}}
+                <form action="/op/toughts/addComment" method="POST" class="comment-form" style="display:none">
+                    <input type="hidden" name="toughtId" value="{{this.id}}">
+                    <input type="hidden" name="userId" value="{{this.User.id}}  ">
+                    <textarea name="content" class="comentario" placeholder="digite um comentário"></textarea>
+                    <button type="submit">Enviar comentário</button>
+                </form>
+        </figure>
     {{/each}}
 </div>
+</div>
+
+<script>
+    //Adicionar evento de clique para todos botoes "Adicionar comentário"
+    const addCommentButtons = document.querySelectorAll('.add-comment-button');
+    addCommentButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            //encontrar o formulário de ocmentário oculto que ta na msm div
+            const commentForm = button.parentElement.querySelector('.comment-form'); //pegar o elemento parente
+            commentForm.style.display = 'block';
+        })  
+    })
+</script>

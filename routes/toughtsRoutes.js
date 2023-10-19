@@ -15,6 +15,9 @@ router.get('/archs', checkAuth, ToughtController.showArchs);
 //editar pensamento
 router.get('/edit', checkAuth, ToughtController.edit);
 
+//adicionar comentários
+router.post('/addComment', checkAuth, ToughtController.addComment);
+
 router.get('/', ToughtController.showHome);
 
 

@@ -10,6 +10,7 @@ import conn from '../db/conn';
 import User from '../models/User';
 import Tought from '../models/Tought';
 import WanoTought from '../models/WanoTought';
+import Comment from '../models/Comment'
 
 import ToughtController from '../controllers/ToughtController';
 

@@ -1,517 +1,502 @@
-
-    :root {
-        --vermelho:#b30a0a;
-        --azul: #166bdb;
-        --ciano: #00ffff;
-    }
-
-
-    * {
-        font-family: Helvetica;
-        margin: 0;
-        padding: 0;
-        background-color: #222;
-        color: #fff;
-    }
-
-    /* NAVBAR */
-    #logo img {
-        height: 100px;
-    }
-
-    #navbar {
-        padding: 1.2em 1.4em;
-        margin-bottom: 1em;
-        /* flex jogar um do lado o outro */
-        display: flex; 
-        justify-content: space-between;
-        align-items: center;
-        background-color: #222;
-        border-bottom: 1px solid #f6982d;
-    }
-
-    #navbar ul {
-        display: flex;
-        list-style: none;
-    }
-
-    #navbar li {
-        margin-left: 1em;
-    }
-
-    #navbar ul li a {
-        text-decoration: none;
-        transition: .5s;
-        font-weight: bold;
-    }
-
-    #navbar ul li a:hover {
-        color: #f6982d;
-    }
-
-    /* CONTAINER */
-    .container {
-        min-height: 60vh;
-        padding: 2em;
-    }
+:root {
+    --vermelho:#b30a0a;
+    --azul: #166bdb;
+    --ciano: #00ffff;
+}
 
 
-    /* MESSAGES DO FLASH MESSAGES */
-    .message {
-        padding: 1em;
-        color: #ffffff;
-        background-color: var(--vermelho);
-        border-radius: 5px;
-        text-align: center;
-        margin: 0 auto 2em;
-        max-width: 60%;
-    }
+* {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #fff;
+}
 
-    .success {
-        background-color: green;
-    }
+/* NAVBAR */
+#logo img {
+    height: 100px;
+}
 
-    .error {
-        background-color: red;
-    }
+#navbar {
+    padding: 1.2em 1.4em;
+    margin-bottom: 1em;
+    /* flex jogar um do lado o outro */
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    border-bottom: 1px solid #f6982d;
+}
 
-    /* LOGIN E REGISTER */
-    .auth-container {
-        /* border: 1px solid red; */
-        max-width: 450px;
-        margin: 0 auto;
-        /* Não muda nada no começo, mas já podemos aplicar flexboxx */
-        display: flex;
-        flex-direction: column;
-    }
+#navbar ul {
+    display: flex;
+    list-style: none;
+}
 
-    .auth-container h2 {
-        margin-bottom: 1em;
-        color: #fff;
-        border-left: 4px solid var(--azul);
-        padding: .3em;
-        width: 100px;
-        white-space: nowrap;
-    }
+#navbar li {
+    margin-left: 1em;
+}
 
-    .auth-container a {
-        color: #f6982d;
-    }
+#navbar ul li a {
+    text-decoration: none;
+    transition: .5s;
+    font-weight: bold;
+}
 
-    .form-control {
-        /* Se faz presente retirando a label do lado do input */
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1em;
-    }
+#navbar ul li a:hover {
+    color: #f6982d;
+}
 
-    .form-control label{
-        font-weight: bold;
-        margin-bottom: 0.5em;
-    }
+/* CONTAINER */
+.container {
+    min-height: 60vh;
+    padding: 2em;
+}
 
-    /* Estilizar ambos para fincar no mesmo padrão */
-    .form-control input,
-    .form-control textarea {
-        padding: 7px;
-        border-radius: 3px;
-        border: 1px solid rgb(233, 233, 233);
-    }
 
-    form input[type='submit'],
-    .btn {
-        background-color: var(--azul);
-        color: #fff;
-        border: 2px solid #fff;
-        padding: 0.5em 1.2em;
-        margin-bottom: 1em;
-        font-size: 1em;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: .5s;
-    }
+/* MESSAGES DO FLASH MESSAGES */
+.message {
+    padding: 1em;
+    color: #ffffff;
+    background-color: var(--vermelho);
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto 2em;
+    max-width: 60%;
+}
 
-    form input[type='submit']:hover,
-    .btn:hover {
-        background-color: var(--azul);
-        color: #fff;
-    }
+.success {
+    background-color: green;
+}
 
-    /* CREATE /EDIT FORM */
-    .tought-form-container a{
+.error {
+    background-color: red;
+}
+
+/* LOGIN E REGISTER */
+.auth-container {
+    /* border: 1px solid red; */
+    max-width: 450px;
+    margin: 0 auto;
+    /* Não muda nada no começo, mas já podemos aplicar flexboxx */
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container h2 {
+    margin-bottom: 1em;
+    color: #fff;
+    border-left: 4px solid var(--azul);
+    padding: .3em;
+    width: 100px;
+    white-space: nowrap;
+}
+
+.auth-container a {
+    color: #f6982d;
+}
+
+.form-control {
+    /* Se faz presente retirando a label do lado do input */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.form-control label{
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+/* Estilizar ambos para fincar no mesmo padrão */
+.form-control input,
+.form-control textarea {
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+form input[type='submit'],
+.btn {
+    background-color: var(--azul);
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 0.5em 1.2em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
+
+form input[type='submit']:hover,
+.btn:hover {
+    background-color: var(--azul);
+    color: #fff;
+}
+
+/* CREATE /EDIT FORM */
+.tought-form-container a{
+color: #fff;
+background-color: var(--azul);
+}
+
+.tought-form-container a:hover {
+    color: #fff; 
+}
+
+.tought-form-container h1 {
+    margin: 1em 0;
+    color: #fff;
+    border-left: 4px solid #f6982d;
+    padding: .3em;
+    width: 100px;
+}
+
+.tought-form-container form{
+    max-width: 30%;
+    margin-top: 1.5em;
+}
+
+/* DASHBOARD */
+.dashboard {
+    background-color: #222;
+    color: #fff;
+    padding: 2em;
+    border: 1px solid var(--azul);
+    border-radius: 5px;
+}
+
+.dashboard .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.dashboard .dashboard-title {
+    border-left: 4px solid var(--azul);
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.dashboard h3 {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.dashboard ul.thought-list {
+    list-style: none;
+}
+
+.dashboard li.thought-item {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #333;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.dashboard .thought-content {
+    border: none;
+    border-top: 1px solid #333;
+    padding: 1em 0;
+}
+
+.dashboard .label {
+    font-weight: bold;
+    color: #f6982d;
+    margin-bottom: 5px;
+}
+
+.dashboard .content {
+    margin-bottom: 4px;
+}
+
+.dashboard .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.dashboard .actions .btn {
     color: #fff;
     background-color: var(--azul);
-    }
+    border: none;
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
 
-    .tought-form-container a:hover {
-        color: #fff; 
-    }
+.dashboard .actions .btn:hover {
+    background-color: #166bdb;
+}
 
-    .tought-form-container h1 {
-        margin: 1em 0;
-        color: #fff;
-        border-left: 4px solid #f6982d;
-        padding: .3em;
-        width: 100px;
-    }
+.dashboard a {
+    color: #ffffff;
+    text-decoration: none;
+}
 
-    .tought-form-container form{
-        max-width: 30%;
-        margin-top: 1.5em;
-    }
-
-    /* DASHBOARD */
-    .dashboard {
-        background-color: #222;
-        color: #fff;
-        padding: 2em;
-        border: 1px solid #f6982d;
-        border-radius: 5px;
-    }
-    
-    .dashboard .title-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1em;
-    }
-    
-    .dashboard .title-container h2 {
-        border-left: 4px solid var(--azul);
-        padding: 10px;
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-    
-    .dashboard h3 {
-        font-size: 1.2em;
-        margin-bottom: 1.5em;
-    }
-    
-    .dashboard ul {
-        list-style: none;
-    }
-    
-    .dashboard li {
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: 1px solid #333;
-        margin-bottom: 1em;
-        border-radius: 5px;
-    }
-    
-    .dashboard .conteudo {
-        border: none;
-        border-top: 1px solid #333;
-        padding: 1em 0;
-    }
-    
-    .dashboard .label {
-        font-weight: bold;
-        color: #f6982d;
-        margin-bottom: 5px;
-    }
-
-    .dashboard .title {
-        margin-bottom: 4px;
-    }
-    .dashboard span {
-
-    }
-    
-    .dashboard .actions {
-        display: flex;
-    }
-    
-    .dashboard .actions .btn {
-        color: #fff;
-        background-color: var(--azul);
-        border: none;
-        padding: 0.5em 1em;
-        margin: 0 0.5em;
-        cursor: pointer;
-        text-decoration: none;
-        transition: .5s;
-    }
-    
-    .dashboard .actions .btn:hover {
-        background-color: #166bdb;
-    }
-    
-    .dashboard a {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    
-    .dashboard a:hover {
-        text-decoration: underline;
-        color: #fff;
-    }
-    
-    
-
-    /* HOME  */
-    .home-header {
-        /* border: 1px solid red; */
-        display: flex;
-        flex-direction: column;
-        max-width: 60%;
-        margin: 0 auto 1em;
-        text-align: center;
-    }
-
-    .home-header h1 {
-        margin-bottom: 1em;
-    }
-
-    .home-header span {
-        color: #f6982d;
-    }
-
-    .home-header p,
-    .home-header form {
-        margin-bottom: 1.2em;
-    }
-
-    .home-header input {
-        border: none;
-        border-bottom: 1px solid #fff;
-        padding: 0.5em;
-        margin-right: 1em;
-    }
-
-    /* Não pegar os hidden */
-    .home-header input[type='text'] {
-        width: 60%;
-    }
-
-    .home-header input::placeholder {
-        color: #fff;
-    }
-
-    .order-container {
-        /* border: 1px solid red; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 80%;
-        margin: 0 auto 1em;
-    }
-
-    .order-container span {
-        font-weight: bold;
-        color: #fff;
-    }
-
-    .order-container form {
-        margin: 0;
-    }
-
-    .order-container button {
-        margin-bottom: 0;
-        border: none;
-        cursor: pointer;
-    }
-
-    .order-container button:hover,
-    .order-container i:hover,
-    .order-container a:hover {
-        color: #f6982d;
-    }
-
-    .order-container button,
-    .order-container i,
-    .order-container a {
-        margin: 0 7px;
-    }
-
-    .toughts-container figure {
-        border-bottom: 1px solid #333;
-        padding: 0.5em;
-        max-width: 50%;
-        margin: 0 auto 1em;
-    }
-
-    .toughts-container blockquote {
-        font-style: italic;
-        font-size: 1.5em;
-        margin-bottom: .4em;
-    }
-
-    .toughts-container span {
-        color: #f6982d;
-    }
-
-    /* FOOTER */
-    footer {
-        height: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-top: 1px solid #f6982d;
-    }
-
-    footer span {
-        font-weight: bold;
-        color: #f6982d;
-    }
-
-    /* Estilo para a seção de comentários */
-    .comentarios {
-        margin-top: 1em;
-    }
-
-    .comentarios h2 {
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #f6982d;
-        margin-bottom: 0.5em;
-    }
-
-    .comentarios p {
-        font-size: 1em;
-        margin-bottom: 0.3em;
-    }
-
-    .comentarios span {
-        color: #f6982d;
-        font-weight: bold;
-    }
-
-
-    /* Arcos */
-    .h1archs {
-        text-align: center;
-    }
-    
-    .archs {
-     
-        margin: 20px auto; /* Margem auto para centralizar a div */
-        text-align: center; /* Centralizar o conteúdo dentro da div */
-        padding: 10px; /* Adicionar espaço interno para melhorar a aparência */
-    }
-    
-    .archs div {
-        display: inline-block; /* Exibe as divs em linha um ao lado do outro */
-        width: 200px; /* Largura das divs */
-        height: 220px; /* Altura das divs */
-        margin-left: 50px;
-        border: 1px solid #000;
-        text-align: center; /* Centralizar o conteúdo */
-    }
-    
-    .content h3 {
-        margin-top: 10px;
-        margin-bottom: 20px; /* Adicione margem inferior para afastar do link */
-    }
-    
-    .archs img {
-        width: 100%;
-        height: 100%;
-    }
-
-    #wano {
-        background-color: rgb(128, 7, 128);
-    }
-    #whole {
-        background-color: rgb(240, 151, 166);
-    }
-
-
-
-/* Tought Arches */
-    .tought-archs {
-  
-    text-align: center;
-    padding: 30ppx;
-    margin: 0 auto;
-    background-color: #333; 
+.dashboard a:hover {
+    text-decoration: underline;
     color: #fff;
-    max-width: 700px; 
-    
-    }
+}
 
-    .tought-archs h1,
-    .tought-archs h2,
-    .tought-archs h3{
-    margin-bottom: 20px; 
-    color: var(--ciano)
-    }
+/* HOME  */
+.home-header {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    margin: 0 auto 1em;
+    text-align: center;
+}
 
-    .tought-archs img {
-    max-width: 100%;
-    }
+.home-header h1 {
+    margin-bottom: 1em;
+}
 
-    .tought-form-container {
-    margin: 20px auto;
-    text-align: left;
-    }
+.home-header span {
+    color: #f6982d;
+}
 
-    .form-control label {
+.home-header p,
+.home-header form {
+    margin-bottom: 1.2em;
+}
+
+.home-header input {
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 0.5em;
+    margin-right: 1em;
+}
+
+/* Não pegar os hidden */
+.home-header input[type='text'] {
+    width: 60%;
+}
+
+.home-header input::placeholder {
+    color: #fff;
+}
+
+.order-container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto 1em;
+}
+
+.order-container span {
     font-weight: bold;
-    margin-bottom: 10px;
-    }
+    color: #fff;
+}
 
-    .form-control input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid var(--azul);
-    }
+.order-container form {
+    margin: 0;
+}
 
-    form input[type='textarea'] {
-        border: 1px solid  var(--azul);
-    }
+.order-container button {
+    margin-bottom: 0;
+    border: none;
+    cursor: pointer;
+}
 
-   
-/* Lista de comentários */
+.order-container button:hover,
+.order-container i:hover,
+.order-container a:hover {
+    color: #f6982d;
+}
+
+.order-container button,
+.order-container i,
+.order-container a {
+    margin: 0 7px;
+}
+
+.toughts-container figure {
+    border-bottom: 1px solid #333;
+    padding: 0.5em;
+    max-width: 50%;
+    margin: 0 auto 1em;
+}
+
+.toughts-container blockquote {
+    font-style: italic;
+    font-size: 1.5em;
+    margin-bottom: .4em;
+}
+
+.toughts-container span {
+    color: #f6982d;
+}
+
+/* FOOTER */
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #f6982d;
+}
+
+footer span {
+    font-weight: bold;
+    color: #f6982d;
+}
+
+/* Estilo para a seção de comentários */
 .comentarios {
-    margin-top: 20px;
+    margin-top: 1em;
+}
+
+.comentarios h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f6982d;
+    margin-bottom: 0.5em;
+}
+
+.comentarios p {
+    font-size: 1em;
+    margin-bottom: 0.3em;
+}
+
+.comentarios span {
+    color: #f6982d;
+    font-weight: bold;
+}
+
+
+/* Arcos */
+.h1archs {
+    text-align: center;
+}
+
+.archs {
+ 
+    margin: 20px auto; /* Margem auto para centralizar a div */
+    text-align: center; /* Centralizar o conteúdo dentro da div */
+    padding: 10px; /* Adicionar espaço interno para melhorar a aparência */
+}
+
+.archs div {
+    display: inline-block; /* Exibe as divs em linha um ao lado do outro */
+    width: 200px; /* Largura das divs */
+    height: 220px; /* Altura das divs */
+    margin-left: 50px;
+    border: 1px solid #000;
+    text-align: center; /* Centralizar o conteúdo */
+}
+
+.content h3 {
+    margin-top: 10px;
+    margin-bottom: 20px; /* Adicione margem inferior para afastar do link */
+}
+
+.archs img {
+    width: 100%;
+    height: 100%;
+}
+
+#wano {
+    background-color: rgb(128, 7, 128);
+}
+#whole {
+    background-color: rgb(240, 151, 166);
+}
+
+
+/* Estilos para a seção de pensamentos (Thought Arches) */
+.tought-archs {
+    text-align: center;
+    padding: 30px;  /* Correção do valor errado: estava "30ppx" */
+    margin: 0 auto;
+    background-color: #333;
+    color: #fff;
+    max-width: 700px;
+}
+
+.tought-archs h1,
+.tought-archs h2,
+.tought-archs h3 {
+    margin-bottom: 20px;
+    color: var(--ciano); /* Usando a variável de cor --ciano */
+}
+
+.tought-archs img {
+    max-width: 100%;
+}
+
+.tought-form-container {
+    margin: 20px auto;
     text-align: left;
 }
 
-.comentarios h3 {
-    font-size: 1.5em;
+.form-control label {
     font-weight: bold;
-    color: var(--ciano);
     margin-bottom: 10px;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid var(--azul); /* Usando a variável de cor --azul */
+}
+
+form textarea {  /* Correção de "form input[type='textarea']" para "form textarea" */
+    border: 1px solid var(--azul); /* Usando a variável de cor --azul */
+}
+
+
+ 
+
+/* Lista de comentários */
+.comentarios {
+margin-top: 20px;
+text-align: left;
+}
+
+.comentarios h3 {
+font-size: 1.5em;
+font-weight: bold;
+color: var(--ciano);
+margin-bottom: 10px;
 }
 
 /* Estilo para cada comentário */
 .comentarios figure {
-    border: 1px solid #f6982d;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #333;
-    color: #fff;
+border: 1px solid #f6982d;
+padding: 10px;
+margin: 10px 0;
+background-color: #333;
+color: #fff;
 }
 
 .comentarios figure blockquote {
-    font-size: 1.2em;
-    margin: 0;
+font-size: 1.2em;
+margin: 0;
 }
 
 .comentarios figure p {
-    margin: 10px 0;
-    
+margin: 10px 0;
+
 }
 
 .comentarios figure span {
-    display: block;
-    text-align: right;
-    font-weight: bold;
+display: block;
+text-align: right;
+font-weight: bold;
 }
-
-
-
-
-
-    
-    
-    
-    
-    
