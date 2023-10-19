@@ -1,1 +1,14 @@
 <h1>Pensamentoss!!!</h1>
+
+<div class="toughts-container">
+    {{#each toughts}}
+    <figure>
+        <blockquote>
+            "Titulo: {{this.title}}"
+            <p>Conteudo: {{this.content}}</p>
+        </blockquote>
+        <span>por : {{this.User.name}}</span>
+     
+    </figure>
+    {{/each}}
+</div>

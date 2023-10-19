@@ -1,10 +1,14 @@
+import WanoTought from '../models/WanoTought'
 import Tought from '../models/Tought'
 import User from '../models/User';
 
 module.exports = class ToughtController {
 
-    static showHome(req, res){
-        res.render('optoughts/home');
+    static async showHome(req, res){
+        //exibir pensamentos na home
+        const toughtsData = await Tought.findAll({ include: User});
+        const toughts = toughtsData.map(result => result.get({plain: true}));
+        res.render('optoughts/home', { toughts });
     }
 
     //dashboard
@@ -15,13 +19,18 @@ module.exports = class ToughtController {
             return;
         }
         try {
-            const user = await User.findOne({where: {id: userId}, include: Tought, plain: true});
-            const toughts = user.Toughts.map(result => result.dataValues);
+            const user = await User.findOne(
+                { where: {id: userId},
+                include: [Tought, WanoTought],
+            })
 
-            res.render('optoughts/dashboard', { toughts })    
+            //console.log(user)
+            const toughts = user.Toughts.map(result => result.dataValues);
+            const wanoTought = user.WanoToughts.map(result => result.dataValues);
+            res.render('optoughts/dashboard', { toughts, wanoTought})    
         }
         catch(err) {
-            console.log(err);
+            console.log('Deu erro' + err);
         }
     }
 
@@ -60,5 +69,15 @@ module.exports = class ToughtController {
          catch(err) {
         console.log('Deu erro' + err);
         }      
+    }
+
+    // Editar pensamento
+    static edit(req, res) {
+        res.render('optoughts/edit');
+    }
+
+    //showArchss
+    static showArchs(req, res) {
+        res.render('optoughts/archs');
     }
 }

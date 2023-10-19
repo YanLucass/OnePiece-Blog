@@ -1,0 +1,45 @@
+
+
+<div class="tought-archs">
+
+    <h1> Compartilhe pensamentos sobre</h1>
+    <h2>Wano</h2>
+    <img src="/img/wano.png" alt="Wano">
+    <h3>Adicionar pensamento</h3>
+
+    <div class="tought-form-container">
+        {{!-- Form para cadastrar pensamento --}}
+        <form action="/archs/archToughtAdd" method="POST">
+        <div class="form-control">
+            <label for="title">Titulo: </label>
+            <input type="text" name="title" placeholder="digite o titulo">
+        </div>
+
+        <div class="form-control">
+            <label for="content">Digite o conteudo: </label>
+            <textarea name="content" placeholder="descreva seu pensamento"></textarea>
+         </div>
+
+         <input type="submit" value="Enviar">
+
+    </form>
+    </div>
+    
+    
+
+    <div class="comentarios">
+        <h3>Lista de comentários</h3>
+        {{#each toughtsWano}}
+            <figure>
+                <blockquote>
+                    <p>Titulo: "{{this.title}}"</p>
+                    <p>Conteudo: {{this.content}}</p>
+                </blockquote>
+                <span>por: {{this.User.name}}</span>
+                <button>Adicionar comentário</button>
+            </figure>
+        {{/each}}
+
+    </div>
+    
+</div>

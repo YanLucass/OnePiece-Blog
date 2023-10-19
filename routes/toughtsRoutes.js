@@ -10,6 +10,11 @@ router.get('/dashboard', checkAuth, ToughtController.dashboard);
 router.get('/general', checkAuth, ToughtController.generalAdd);
 router.post('/general', checkAuth, ToughtController.generalAddPost);
 
+//criar pensamento de arco
+router.get('/archs', checkAuth, ToughtController.showArchs);
+//editar pensamento
+router.get('/edit', checkAuth, ToughtController.edit);
+
 router.get('/', ToughtController.showHome);
 
 

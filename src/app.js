@@ -9,12 +9,14 @@ import conn from '../db/conn';
 //Models
 import User from '../models/User';
 import Tought from '../models/Tought';
+import WanoTought from '../models/WanoTought';
 
 import ToughtController from '../controllers/ToughtController';
 
 //Rotas
 import toughtsRoutes from '../routes/toughtsRoutes';
 import authRoutes from '../routes/authRoutes';
+import archsRoutes from '../routes/archsRoutes'
 
 const app = express();
 
@@ -73,6 +75,7 @@ app.use(express.static("public"));
 // Usar rotas
 app.use('/op/toughts', toughtsRoutes);
 app.use('/', authRoutes);
+app.use('/archs', archsRoutes);
 
 app.get('/', ToughtController.showHome);
 
