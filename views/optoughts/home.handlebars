@@ -26,14 +26,14 @@
         {{!-- Podemos buscar eai vai ser ordenado pelo mais recente etc. --}}
         <input type="hidden" name="search" value="{{this.search}}">
         <input type="hidden" name="order" value="new">
-        <button type="submit"> <i class="bi bi-arrow-up"></i></button>
+        <button type="submit"> <i class="bi bi-arrow-up" style="color: #fff;">Recente</i></button>
     </form>
 
     {{!-- Mais antigo --}}
     <form action="/" method="GET">
         <input type="hidden" name="search" value="{{this.search}}">
         <input type="hidden" name="order" value="old">
-        <button type="submit"><i class="bi bi-arrow-down"></i></button>
+        <button type="submit"><i class="bi bi-arrow-down" style="color: #fff">Antigo</i></button>
     </form>
     {{!-- Volta par ahome, removendo os parametross da url, desfazendo td --}}
     <a href="/">Limpar</a>
@@ -63,7 +63,7 @@
                 <form action="/op/toughts/addComment" method="POST" class="comment-form" style="display:none">
                     <input type="hidden" name="toughtId" value="{{this.id}}">
                     <input type="hidden" name="userId" value="{{this.User.id}}  ">
-                    <textarea name="content" class="comentario" placeholder="digite um comentário"></textarea>
+                    <textarea name="content" class="comentario" placeholder="digite um comentário" style="color: #222;"></textarea>
                     <button type="submit">Enviar comentário</button>
                 </form>
         </figure>

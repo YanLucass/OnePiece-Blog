@@ -13,8 +13,8 @@ router.post('/general', checkAuth, ToughtController.generalAddPost);
 //criar pensamento de arco
 router.get('/archs', checkAuth, ToughtController.showArchs);
 //editar pensamento
-router.get('/edit', checkAuth, ToughtController.edit);
-
+router.get('/edit/:id', checkAuth, ToughtController.edit);
+router.post('/editPost', checkAuth, ToughtController.editPost)
 //adicionar comentários
 router.post('/addComment', checkAuth, ToughtController.addComment);
 

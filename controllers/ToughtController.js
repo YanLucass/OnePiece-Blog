@@ -108,10 +108,43 @@ module.exports = class ToughtController {
     }
 
     // Editar pensamento
-    static edit(req, res) {
-        res.render('optoughts/edit');
+    static async edit(req, res) {
+        const id = req.params.id;
+        try {
+        const tought = await Tought.findOne({ where: { id: id }, raw: true});
+        res.render('optoughts/edit', { tought });
+        } catch(err) {
+            console.log(err);
+        }
+     
     }
 
+    static async editPost(req, res) {
+        
+        const id = req.body.id
+        
+        const toughtData = {
+            title: req.body.title,
+            content: req.body.content,
+            UserId: req.session.userId
+        }
+
+        console.log(id);
+
+        console.log(toughtData)
+
+        try {
+            await Tought.update(toughtData, { where: {id: id}});
+            req.flash('message', 'Pensamento editado');
+            req.session.save(() => {
+                res.redirect('/op/toughts/dashboard');
+                return;
+            })
+
+        } catch(err) {
+            console.log('Ocorreu um erro:' + err);
+        }
+    }
     //showArchss
     static showArchs(req, res) {
         res.render('optoughts/archs');
@@ -149,6 +182,8 @@ module.exports = class ToughtController {
             console.log('Ocorreu um erro' + err);
         }
     }
+
+   
 
 
 
