@@ -3,8 +3,9 @@
 <div class="home-header">
     {{#if search}}
     <h1>Você está buscando por: <span>{{search}}</span></h1>
-        {{#if toughtsQty}}
-            <p>Foram encontrados <span>{{toughtsQty}}</span> pensamentos de <span>{{allToughtsQty}}</span></p>
+        {{#if toughts}}
+            <p>Foram encontrados <span>{{toughtsQty}}</span> pensamentos de <span>{{allToughtsQty}} cadastrados</span></p>
+            
         {{else}}
             <p>Nenhum pensamento foi encontrado com esse termo <span>{{search}}</span></p>
         {{/if}}

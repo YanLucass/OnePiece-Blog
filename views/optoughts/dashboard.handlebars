@@ -1,4 +1,5 @@
 <div class="dashboard">
+    <h1 style="text-align: center;">Essa é sua dashboard <span>{{userName}}</span></h1>
     <h2> 1- Pensamento Geral</h2>
     <p>Pense sobre qualquer coisa relacionada a One Piece, teorias.</p>
 
@@ -27,6 +28,23 @@
         </li>
         {{/each}}
     </ul>
+
+    {{#if wanoTought}}
+         <ul class="thought-list">
+            {{#each wanoTought}}
+            <li class="thought-item">
+                <div class="thought-content">
+                <span class="label">Título: {{this.title}}</span>
+                <p class="content">Conteúdo: {{this.content}}</p>
+                <span class="label">{{this.arch}}</span>
+                </div>
+            <div class="actions">
+                <a href="/op/toughts/edit/{{this.id}}" class="btn">Editar</a>
+            </div>
+        </li>
+        {{/each}}
+         </ul>
+        {{/if}}
     {{else}}
     <p>Você ainda não tem pensamentos</p>
     {{/if}}

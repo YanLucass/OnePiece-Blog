@@ -44,7 +44,7 @@ module.exports = class ToughtController {
         if(toughtsQty === 0) {
             toughtsQty = false;
         }
-        res.render('optoughts/home', { toughts });
+        res.render('optoughts/home', { search, toughts, toughtsQty, allToughtsQty });
     }
 
     //dashboard
@@ -58,12 +58,12 @@ module.exports = class ToughtController {
             const user = await User.findOne(
                 { where: {id: userId},
                 include: [Tought, WanoTought],
-            })
+            });
 
-            //console.log(user)
+            const userName = user.name;
             const toughts = user.Toughts.map(result => result.dataValues);
             const wanoTought = user.WanoToughts.map(result => result.dataValues);
-            res.render('optoughts/dashboard', { toughts, wanoTought})    
+            res.render('optoughts/dashboard', {userName, toughts, wanoTought})    
         }
         catch(err) {
             console.log('Deu erro' + err);
@@ -83,11 +83,7 @@ module.exports = class ToughtController {
             return;
         }
 
-        if(!content) {
-            req.flash('message', 'Digite um conteudo');
-            res.redirect('/op/toughts/general');
-            return;
-        }
+       
         const toughtData = {
             title,
             content,
@@ -182,10 +178,6 @@ module.exports = class ToughtController {
             console.log('Ocorreu um erro' + err);
         }
     }
-
-   
-
-
 
     }
 
