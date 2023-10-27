@@ -24,10 +24,16 @@
             </div>
             <div class="actions">
                 <a href="/op/toughts/edit/{{this.id}}" class="btn">Editar</a>
+                <form action="/op/toughts/delete" method="post">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="hidden" name="uniq" value="Geral">
+                    <button class="btn">Excluir</button>
+                </form>
             </div>
         </li>
         {{/each}}
     </ul>
+    {{/if}}
 
     {{#if wanoTought}}
          <ul class="thought-list">
@@ -40,12 +46,17 @@
                 </div>
             <div class="actions">
                 <a href="/op/toughts/edit/{{this.id}}" class="btn">Editar</a>
+                <form action="/op/toughts/delete" method="post">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="hidden" name="uniq" value="{{this.arch}}">
+                    <button class="btn">Excluir</button>
+                </form>
             </div>
         </li>
         {{/each}}
          </ul>
-        {{/if}}
-    {{else}}
-    <p>Você ainda não tem pensamentos</p>
+
     {{/if}}
+
+    
 </div>

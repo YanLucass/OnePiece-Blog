@@ -15,7 +15,7 @@ module.exports = class ArchController {
     static async archWanoAdd(req, res) {
         const { title, content } = req.body;
     
-        if(!title || !content) {
+        if(!title) {
             req.flash('message', 'Preencha os campos!');
             res.redirect('/archs/wano');
             return;

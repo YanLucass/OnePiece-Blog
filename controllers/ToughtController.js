@@ -141,6 +141,30 @@ module.exports = class ToughtController {
             console.log('Ocorreu um erro:' + err);
         }
     }
+
+    //deletar pensamento geral
+    static async deleteGeneral(req, res) {
+        const id = req.body.id;
+        const uniq = req.body.uniq;
+        try {
+            switch(uniq) {
+
+                case 'Geral':
+                    await Tought.destroy({where: { id: id }});
+                    res.redirect('/op/toughts/dashboard');
+                break;
+
+                case 'Wano':
+                    await WanoTought.destroy({where: {id: id}});
+                    res.redirect('/op/toughts/dashboard');
+                 break;   
+            }
+            
+        } catch(err) {
+            console.log('Deu erro' + err);
+        }
+    }
+
     //showArchss
     static showArchs(req, res) {
         res.render('optoughts/archs');
